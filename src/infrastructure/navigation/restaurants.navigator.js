@@ -1,12 +1,12 @@
-import React from "react";
 import {
   createStackNavigator,
   TransitionPresets,
 } from "@react-navigation/stack";
+import React from "react";
 
-import RestaurantsScreen from "../../features/screens/restaurant/restaurants.screen";
+import RestaurantsScreen from "../../features/restaurants/screens/restaurants.screen";
 
-import RestaurantDetailScreen from "../../features/restaurant-detail-screen/restautrant-detail-screen.component";
+import RestaurantDetailScreen from "../../features/restaurants/screens/restaurant-detail-screen/restautrant-detail-screen.component";
 const RestaurantStack = createStackNavigator();
 
 const RestaurantsNavigator = () => {

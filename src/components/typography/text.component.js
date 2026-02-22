@@ -1,4 +1,4 @@
-import styled from 'styled-components/native';
+import styled from "styled-components/native";
 
 const defaultTextStyles = (theme) => `
     font-family: ${theme.fonts.body};
@@ -30,7 +30,9 @@ font-size:${theme.fontSizes.body};
 const error = (theme) => `
 color:${theme.colors.text.error};
 `;
-
+const success = (theme) => `
+color:${theme.colors.text.success};
+`;
 //the below object works because keys and values has the same name as variable,
 //for instance
 // const variants = {body} = {body: body} = {body: (theme) => `
@@ -41,12 +43,13 @@ const variants = {
   caption,
   error,
   hint,
+  success,
 };
 
 export const Text = styled.Text`
   ${({ theme }) => defaultTextStyles(theme)}
   ${({ variant, theme }) =>
-    variant ? variants[variant](theme) : variants['body'](theme)}
+    variant ? variants[variant](theme) : variants["body"](theme)}
 `;
 /*
 Text.defaultProps = {

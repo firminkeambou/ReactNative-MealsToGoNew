@@ -1,5 +1,5 @@
-import React from 'react';
-import styled, { useTheme } from 'styled-components/native';
+import React from "react";
+import styled, { useTheme } from "styled-components/native";
 //import { useTheme } from 'styled-components/native';
 // the below variable sets indexes of array containing the size we refer to
 
@@ -9,10 +9,10 @@ const sizeVariant = {
   large: 3,
 };
 const positionVariant = {
-  top: 'margin-top',
-  left: 'margin-left',
-  right: 'margin-right',
-  bottom: 'margin-bottom',
+  top: "margin-top",
+  left: "margin-left",
+  right: "margin-right",
+  bottom: "margin-bottom",
 };
 
 const getVariant = (position, size, theme) => {
@@ -30,8 +30,8 @@ const SpacerView = styled.View`
 
 const Spacer = ({ position, size, children }) => {
   const theme = useTheme();
-  const newPosition = position ? position : 'top';
-  const newSize = size ? size : 'small';
+  const newPosition = position ? position : "top";
+  const newSize = size ? size : "small";
   const variant = getVariant(newPosition, newSize, theme);
   return <SpacerView variant={variant}>{children}</SpacerView>;
 };
