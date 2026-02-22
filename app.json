@@ -19,7 +19,8 @@
         "monochromeImage": "./assets/images/logo_transparent.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.freemanexpo.MealsToGoNew"
     },
     "web": {
       "output": "static",
