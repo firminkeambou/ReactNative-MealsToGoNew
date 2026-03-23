@@ -21,7 +21,7 @@ const AccountScreen = ({ navigation }) => {
         loop
         key="animation"
         resizeMode="cover"
-        source={require("../../../../assets.old/images/watermelon.json")}
+        source={require("../../../../assets/images/watermelon.json")}
       />
 
       <Title>Meals To Go New</Title>

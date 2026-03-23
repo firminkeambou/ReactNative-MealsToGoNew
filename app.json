@@ -9,7 +9,11 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.freemanexpo.MealsToGoNew.ios",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -48,14 +52,14 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "ba427842-cd51-4653-a49d-22accd8707d5"
+        "projectId": "b47083b6-e4fa-4faa-aef2-ba0c2d7483da"
       }
     },
     "runtimeVersion": {
       "policy": "appVersion"
     },
     "updates": {
-      "url": "https://u.expo.dev/ba427842-cd51-4653-a49d-22accd8707d5"
+      "url": "https://u.expo.dev/b47083b6-e4fa-4faa-aef2-ba0c2d7483da"
     }
   }
 }

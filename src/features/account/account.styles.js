@@ -6,7 +6,7 @@ import { colors } from "../../infrastructure/theme/colors";
 import { Button, TextInput } from "react-native-paper";
 import { Text } from "@/src/components/typography/text.component";
 export const AccountBackground = styled(ImageBackground).attrs({
-  source: require("../../../assets.old/images/home_bg.jpg"),
+  source: require("../../../assets/images/home_bg.jpg"),
 })`
   flex: 1;
   align-items: center;

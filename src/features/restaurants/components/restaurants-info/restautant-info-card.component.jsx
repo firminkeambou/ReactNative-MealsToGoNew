@@ -4,8 +4,8 @@ import { Card } from "react-native-paper";
 //import { useTheme } from 'styled-components/native';
 import { SvgXml } from "react-native-svg";
 import Favourite from "../../../../components/favourites/favourite.component";
-import open from "../../../../../assets.old/images/open";
-import star from "../../../../../assets.old/images/star";
+import open from "../../../../../assets/images/open";
+import star from "../../../../../assets/images/star";
 import Spacer from "../../../../components/spacer/spacer.component";
 import { Text } from "../../../../components/typography/text.component";
 import {
