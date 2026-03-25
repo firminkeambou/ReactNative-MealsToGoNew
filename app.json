@@ -7,7 +7,6 @@
     "icon": "./assets/images/logo_transparent.png",
     "scheme": "mealstogonew",
     "userInterfaceStyle": "automatic",
-
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.freemanexpo.MealsToGoNew.ios",
@@ -22,7 +21,6 @@
         "backgroundImage": "./assets/images/logo_transparent.png",
         "monochromeImage": "./assets/images/logo_transparent.png"
       },
-
       "predictiveBackGestureEnabled": false,
       "package": "com.freemanexpo.MealsToGoNew"
     },
@@ -52,14 +50,14 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "b47083b6-e4fa-4faa-aef2-ba0c2d7483da"
+        "projectId": "f3106e62-b6d6-42e5-ab1b-8c489729bb55"
       }
     },
     "runtimeVersion": {
       "policy": "appVersion"
     },
     "updates": {
-      "url": "https://u.expo.dev/b47083b6-e4fa-4faa-aef2-ba0c2d7483da"
+      "url": "https://u.expo.dev/f3106e62-b6d6-42e5-ab1b-8c489729bb55"
     }
   }
 }
