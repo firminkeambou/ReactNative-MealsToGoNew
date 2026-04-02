@@ -7,6 +7,7 @@ import React from "react";
 
 import SettingsScreen from "../../features/settings/screens/settings.screen";
 import FavouritesScreen from "../../features/settings/screens/favourites.screen";
+import CameraScreen from "../../features/settings/screens/camera.screen";
 
 const SettingsStack = createStackNavigator();
 
@@ -39,6 +40,11 @@ const SettingsNavigator = () => {
       <SettingsStack.Screen
         name="Favourites" // name of the screen
         component={FavouritesScreen}
+        options={{ headerShown: true }} // Hide header if needed
+      />
+      <SettingsStack.Screen
+        name="Camera" // name of the screen
+        component={CameraScreen}
         options={{ headerShown: true }} // Hide header if needed
       />
     </SettingsStack.Navigator>

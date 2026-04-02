@@ -6,14 +6,23 @@ import {
   signOut,
   User,
   NextOrObserver,
+  initializeAuth,
 } from "firebase/auth";
+// @ts-ignore
+import { getReactNativePersistence } from "@firebase/auth";
 import { app } from "./firebase.config";
+import ReactNativeAsyncStorage from "@react-native-async-storage/async-storage";
 // import {...} from 'firebase/database';
 // import {...} from 'firebase/firestore';
 // import {...} from 'firebase/functions';
 // import {...} from 'firebase/storage';
 
-const auth = getAuth(app);
+//const auth = getAuth(app); //does not allow us to persist states over restarts, so we will be using ReactNativeAsyncStorage to persist states over restarts
+// the below line allow us to persist the user state
+
+const auth = initializeAuth(app, {
+  persistence: getReactNativePersistence(ReactNativeAsyncStorage),
+});
 //sign in user
 export const signInAuthUserWithEmailAndPassword = async (
   email: string,
