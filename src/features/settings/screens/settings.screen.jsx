@@ -31,7 +31,7 @@ const SettingsScreen = () => {
       }
     };
     loadProfilePicture();
-  }, [user]);
+  });
 
   return (
     <SafeArea>

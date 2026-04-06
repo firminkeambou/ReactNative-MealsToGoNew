@@ -48,15 +48,19 @@ const CameraScreen = () => {
         <TouchableOpacity
           style={styles.captureButton}
           onPress={toggleCameraFacing}
-        ></TouchableOpacity>
-        <Text style={styles.text1}>{facing}</Text>
+        >
+        <Text style={styles.text1}>{facing=== "back" ? "front" : "back"}</Text>
+        </TouchableOpacity>
+       
         <Spacer />
         <Spacer />
         <TouchableOpacity
           style={styles.captureButton}
           onPress={takePicture}
-        ></TouchableOpacity>
+        >
         <Text style={styles.text}>snap</Text>
+        </TouchableOpacity>
+        
       </View>
     </View>
   );
@@ -92,7 +96,7 @@ const styles = StyleSheet.create({
     color: "white",
     position: "absolute",
     alignSelf: "center",
-    top: 95,
+    top: 18,
   },
   text1: {
     fontSize: 20,
