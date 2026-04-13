@@ -7,10 +7,11 @@
  * See a full list of supported triggers at https://firebase.google.com/docs/functions
  */
 
-const { setGlobalOptions } = require('firebase-functions');
-const { onRequest } = require('firebase-functions/https');
-const logger = require('firebase-functions/logger');
-const { geocodeRequest } = require('./geocode'); // it works because of the presence of the index.js file within "geocode" directory Import the geocodeRequest function from the geocode module
+const { setGlobalOptions } = require("firebase-functions");
+const { onRequest } = require("firebase-functions/https");
+const logger = require("firebase-functions/logger");
+const { geocodeRequest } = require("./geocode"); // it works because of the presence of the index.js file within "geocode" directory Import the geocodeRequest function from the geocode module
+const { placesRequest } = require("./places"); //it will make use of index.js inside "restaurants"
 // For cost control, you can set the maximum number of containers that can be
 // running at the same time. This helps mitigate the impact of unexpected
 // traffic spikes by instead downgrading performance. This limit is a
@@ -30,18 +31,24 @@ setGlobalOptions({ maxInstances: 10 });
 // https://firebase.google.com/docs/functions/get-started
 // this is a sample(to test out) function that logs "Hello logs!" and responds with "Hello from Firebase bro!" when called via HTTP request.
 const helloWorld = onRequest((request, response) => {
-  logger.info('Hello logs!', {
+  logger.info("Hello logs!", {
     structuredData: true,
-    example: 'Structured data example',
+    example: "Structured data example",
   });
-  response.send('Hello from Firebase bro!');
+  response.send("Hello from Firebase bro!");
 });
 // function that can be called via HTTP request.
+// geocode returns back coordinates of the location searched or requested
 const geocode = onRequest({ cors: true }, (req, res) => {
   geocodeRequest(req, res);
+});
+// the below function/firebase functions /FaaS returns back nearby places(restaurants) related to the geocodes enter as a query parameter when invoking the endpoint
+const placesNearby = onRequest({ cors: true }, (req, res) => {
+  placesRequest(req, res);
 });
 
 module.exports = {
   helloWorld,
   geocode,
+  placesNearby,
 };

@@ -1,9 +1,27 @@
 import camelize from "camelize";
-import { mockImages, mocks } from "./mock/index"; // "./mock/index.js" is implied or cab work as well
-export const restaurantsRequest = (location) => {
+import { hostPlaces } from "../../utils/env";
+export const restaurantsRequest = async (latitude, longitude) => {
   //location = '37.7749295,-122.4194155'
   //default location == san francisco
-  return new Promise((resolve, reject) => {
+  //
+  try {
+    const response = await fetch(
+      `${hostPlaces}?lat=${latitude}&long=${longitude}`,
+      {
+        method: "GET",
+      },
+    );
+    const data = await response.json();
+    /* console.log(
+      "Location request new from restaurants.service.js/restaurantsRequest function",
+      data,
+    ); */
+    return restaurantsTransform(data);
+  } catch (error) {
+    console.error("Error fetching location data:", error);
+  }
+  /////;;;;;;;;;;;;;;;;;;
+  /* return new Promise((resolve, reject) => {
     const mock = mocks[location];
     if (!mock) {
       reject(new Error("Location not found"));
@@ -13,7 +31,7 @@ export const restaurantsRequest = (location) => {
     setTimeout(() => {
       resolve(restaurantsTransform(mock));
     }, 3000); //3 seconds delay to simulate network request
-  });
+  }); */
 };
 const restaurantsTransform = ({ results = [] }) => {
   // destructuring as we know we have "results" in the answer

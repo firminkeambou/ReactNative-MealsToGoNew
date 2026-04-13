@@ -1,15 +1,23 @@
-import React, { createContext, useState, useEffect, useContext } from 'react';
-import { restaurantsRequest } from './restaurants.service';
-import { LocationContext } from '../location/location.context';
+import React, { createContext, useState, useEffect, useContext } from "react";
+import { restaurantsRequest } from "./restaurants.service";
+import { LocationContext } from "../location/location.context";
 export const RestaurantsContext = createContext({
   restaurants: [],
 });
 
 export const RestaurantsContextProvider = ({ children }) => {
   const {
-    location: { latLongString },
+    location: { latLongString, lat, lng },
   } = useContext(LocationContext);
-  const { location } = useContext(LocationContext);
+  /* console.log(
+    "initial { latLongString, lat, long }",
+    latLongString,
+    "//",
+    lat,
+    "//",
+    lng,
+  ); */
+  // const { location } = useContext(LocationContext);
   const [restaurants, setRestaurants] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -23,12 +31,12 @@ export const RestaurantsContextProvider = ({ children }) => {
 
   useEffect(() => {
     // Fetch data or perform any side effects here
-    const retrieveRestaurants = async (loc) => {
+    const retrieveRestaurants = async (latitude, longitude) => {
       setIsLoading(true);
       setRestaurants([]);
 
       try {
-        const data = await restaurantsRequest(loc);
+        const data = await restaurantsRequest(latitude, longitude);
         setRestaurants(data);
       } catch (err) {
         setError(err);
@@ -42,9 +50,10 @@ export const RestaurantsContextProvider = ({ children }) => {
       /*      console.log(
         'latLongString in restaurants.context.js before retrieveRestaurants:'
       ); */
-      retrieveRestaurants(latLongString); //location (latitude,longitude)
+      ////these default values matches "san francisco"
+      retrieveRestaurants(lat, lng); //location (latitude,longitude)
     }
-  }, [latLongString]); //[location]
+  }, [lat, lng]); //[location]
   const value = {
     restaurants, // shorthand for restaurants: restaurants
     isLoading,

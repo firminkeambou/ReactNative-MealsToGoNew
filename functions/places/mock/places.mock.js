@@ -1,9 +1,9 @@
-import antwerp from "./transform_antwerp.json";
-import chicago from "./transform_chicago.json";
-import toronto from "./transform_toronto.json";
-import san_francisco from "./transform_san_francisco.json";
+const antwerp = require("./transform_antwerp");
+const chicago = require("./transform_chicago");
+const toronto = require("./transform_toronto");
+const san_francisco = require("./transform_san_francisco");
 
-export const mocks = {
+module.exports.mocks = {
   "51.219448,4.402464": antwerp,
   "43.653225,-79.383186": toronto,
   "41.878113,-87.629799": chicago,
@@ -21,7 +21,7 @@ export const mockImages = [
   "https://www.foodiesfeed.com/wp-content/uploads/2019/02/pizza-ready-for-baking-600x400.jpg",
 ];
 */
-export const mockImages = [
+/* export const mockImages = [
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZVjaLBODwDcAurHoWU5QiISMlsVZyEQnufA&s",
   "https://plus.unsplash.com/premium_photo-1670740967011-86730910a2e5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bm91cnJpdHVyZSUyMGRlJTIwcmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D",
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEl05F5JrOQMJb6iDsPYkaYiSx_7EZmc_d4g&s",
@@ -32,4 +32,4 @@ export const mockImages = [
 
   "https://images.immediate.co.uk/production/volatile/sites/30/2022/06/Party-food-recipes-fcfb3af.jpg?quality=90&webp=true&resize=700,636",
   "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-1273516682.jpg?c=16x9&q=h_653,w_1160,c_fill/f_avif",
-];
+]; */

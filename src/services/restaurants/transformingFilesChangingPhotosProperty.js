@@ -1,3 +1,5 @@
+// temporary file/program just to insert the very first images
+///run and needed only once
 import mockImages, { length } from "./index";
 
 async function updateJson(filename) {

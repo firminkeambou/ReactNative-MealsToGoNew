@@ -1,7 +1,8 @@
-import camelize from 'camelize';
+import camelize from "camelize";
+import { hostLocation } from "../../utils/env";
 //import { locations } from '../../../functions/geocode/geocode.mock';
 // locationRequest() can be called by default in restaurants.screen.jsx in order to test out if it works
-export const locationRequest = async (searchTerm = 'san francisco') => {
+export const locationRequest = async (searchTerm = "san francisco") => {
   /* //default location == san francisco
   return new Promise((resolve, reject) => {
     const locationMock = locations[searchTerm];
@@ -28,20 +29,17 @@ export const locationRequest = async (searchTerm = 'san francisco') => {
   // we can also use async/await syntax instead of .then() and .catch() for better readability
   //http://127.0.0.1:5001/mealstogoreactnativ/us-central1/geocode?city=${searchTerm}`
   try {
-    const response = await fetch(
-      `http://127.0.0.1:5001/mealstogoreactnativ/us-central1/geocode?city=${searchTerm}`,
-      {
-        method: 'GET',
-      },
-    );
+    const response = await fetch(`${hostLocation}?city=${searchTerm}`, {
+      method: "GET",
+    });
     const data = await response.json();
     console.log(
-      'Location request new from location.service.js/locationRequest function',
+      "Location request new from location.service.js/locationRequest function",
       data,
     );
     return locationTransform(data);
   } catch (error) {
-    console.error('Error fetching location data:', error);
+    console.error("Error fetching location data:", error);
   }
   //locationTransform(locationMock)
 };
@@ -53,7 +51,7 @@ const locationTransform = (result) => {
   const viewport = geometry.viewport;
   const latLongString = `${lat},${lng}`; // to be used in restaurants request as location parameter takes a string "lat,lng"
   console.log(
-    'Location request new from location.service.js/restaurants.screen.jsx',
+    "Location request new from location.service.js/restaurants.screen.jsx",
     latLongString,
   );
   return { latLongString, viewport, lat, lng };
