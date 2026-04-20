@@ -1,14 +1,15 @@
-import camelize from "camelize";
-import { hostPlaces } from "../../utils/env";
+import camelize from 'camelize';
+import { hostPlaces, liveHostPlaces } from '../../utils/env';
 export const restaurantsRequest = async (latitude, longitude) => {
   //location = '37.7749295,-122.4194155'
   //default location == san francisco
   //
   try {
+    //${hostPlaces} error developpment
     const response = await fetch(
-      `${hostPlaces}?lat=${latitude}&long=${longitude}`,
+      `${liveHostPlaces}?lat=${latitude}&long=${longitude}`,
       {
-        method: "GET",
+        method: 'GET',
       },
     );
     const data = await response.json();
@@ -18,7 +19,7 @@ export const restaurantsRequest = async (latitude, longitude) => {
     ); */
     return restaurantsTransform(data);
   } catch (error) {
-    console.error("Error fetching location data:", error);
+    console.error('Error fetching location data:', error);
   }
   /////;;;;;;;;;;;;;;;;;;
   /* return new Promise((resolve, reject) => {
@@ -49,7 +50,7 @@ const restaurantsTransform = ({ results = [] }) => {
     return {
       ...restaurant,
       isOpenNow: restaurant.opening_hours && restaurant.opening_hours.open_now,
-      isClosedTemporarily: restaurant.business_status === "CLOSED_TEMPORARILY",
+      isClosedTemporarily: restaurant.business_status === 'CLOSED_TEMPORARILY',
       address: restaurant.vicinity,
     };
   });
