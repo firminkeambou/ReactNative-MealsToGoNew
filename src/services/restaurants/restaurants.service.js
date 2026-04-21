@@ -1,3 +1,5 @@
+// bear in mind that firebase functions works better in ios simulators as Android do not allow fetching data using "Local Host"
+
 import camelize from 'camelize';
 import { hostPlaces, liveHostPlaces } from '../../utils/env';
 export const restaurantsRequest = async (latitude, longitude) => {
@@ -5,9 +7,18 @@ export const restaurantsRequest = async (latitude, longitude) => {
   //default location == san francisco
   //
   try {
-    //${hostPlaces} error developpment
-    const response = await fetch(
+    //${hostPlaces} only works for simulators //error developpment
+    /* this line should be use to test on real devices
+     const response = await fetch(
       `${liveHostPlaces}?lat=${latitude}&long=${longitude}`,
+      {
+        method: 'GET',
+      },
+    ); */
+
+    // use the below line for simulators and tests environnment
+    const response = await fetch(
+      `${hostPlaces}?lat=${latitude}&long=${longitude}`,
       {
         method: 'GET',
       },
@@ -19,7 +30,7 @@ export const restaurantsRequest = async (latitude, longitude) => {
     ); */
     return restaurantsTransform(data);
   } catch (error) {
-    console.error('Error fetching location data:', error);
+    console.error('Error fetching restaurants places:', error);
   }
   /////;;;;;;;;;;;;;;;;;;
   /* return new Promise((resolve, reject) => {
