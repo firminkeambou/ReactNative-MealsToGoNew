@@ -1,7 +1,7 @@
 // bear in mind that firebase functions works better in ios simulators as Android do not allow fetching data using "Local Host"
 
-import camelize from 'camelize';
-import { hostPlaces, liveHostPlaces } from '../../utils/env';
+import camelize from "camelize";
+import { hostPlaces, liveHostPlaces } from "../../utils/env";
 export const restaurantsRequest = async (latitude, longitude) => {
   //location = '37.7749295,-122.4194155'
   //default location == san francisco
@@ -9,18 +9,18 @@ export const restaurantsRequest = async (latitude, longitude) => {
   try {
     //${hostPlaces} only works for simulators //error developpment
     /* this line should be use to test on real devices
-     const response = await fetch(
+    const response = await fetch(
       `${liveHostPlaces}?lat=${latitude}&long=${longitude}`,
       {
-        method: 'GET',
+        method: "GET",
       },
-    ); */
-
+    );
+    */
     // use the below line for simulators and tests environnment
     const response = await fetch(
       `${hostPlaces}?lat=${latitude}&long=${longitude}`,
       {
-        method: 'GET',
+        method: "GET",
       },
     );
     const data = await response.json();
@@ -30,7 +30,7 @@ export const restaurantsRequest = async (latitude, longitude) => {
     ); */
     return restaurantsTransform(data);
   } catch (error) {
-    console.error('Error fetching restaurants places:', error);
+    console.error("Error fetching restaurants places:", error);
   }
   /////;;;;;;;;;;;;;;;;;;
   /* return new Promise((resolve, reject) => {
@@ -61,7 +61,7 @@ const restaurantsTransform = ({ results = [] }) => {
     return {
       ...restaurant,
       isOpenNow: restaurant.opening_hours && restaurant.opening_hours.open_now,
-      isClosedTemporarily: restaurant.business_status === 'CLOSED_TEMPORARILY',
+      isClosedTemporarily: restaurant.business_status === "CLOSED_TEMPORARILY",
       address: restaurant.vicinity,
     };
   });
