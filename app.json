@@ -4,7 +4,7 @@
     "slug": "MealsToGoNew",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/logo_transparent.png",
+    "icon": "./assets/images/logo.png",
     "scheme": "mealstogonew",
     "userInterfaceStyle": "automatic",
     "ios": {
@@ -17,9 +17,9 @@
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/logo_transparent.png",
-        "backgroundImage": "./assets/images/logo_transparent.png",
-        "monochromeImage": "./assets/images/logo_transparent.png"
+        "foregroundImage": "./assets/images/home_bg.jpg",
+        "backgroundImage": "./assets/images/home_bg.jpg",
+        "monochromeImage": "./assets/images/home_bg.jpg"
       },
       "predictiveBackGestureEnabled": false,
       "package": "com.freemanexpo.MealsToGoNew"
@@ -33,7 +33,7 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/logo_transparent.png",
+          "image": "./assets/images/logo.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff",
@@ -50,14 +50,15 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "9179d022-3685-4cb0-baf8-8ded22f68790"
+        "projectId": "c311b65c-0ae3-4a06-9a27-fbd9f193b5ca"
       }
     },
     "runtimeVersion": {
       "policy": "appVersion"
     },
     "updates": {
-      "url": "https://u.expo.dev/9179d022-3685-4cb0-baf8-8ded22f68790"
-    }
+      "url": "https://u.expo.dev/c311b65c-0ae3-4a06-9a27-fbd9f193b5ca"
+    },
+    "owner": "freemanexpo"
   }
 }
