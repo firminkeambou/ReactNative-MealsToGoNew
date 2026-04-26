@@ -22,7 +22,12 @@
         "monochromeImage": "./assets/images/home_bg.jpg"
       },
       "predictiveBackGestureEnabled": false,
-      "package": "com.freemanexpo.MealsToGoNew"
+      "package": "com.freemanexpo.MealsToGoNew",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyDEbLrygkfBbzKtHDPiqNZy9RTOSBQdW80"
+        }
+      }
     },
     "web": {
       "output": "static",
