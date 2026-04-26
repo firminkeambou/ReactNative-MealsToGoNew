@@ -34,14 +34,14 @@ export const locationRequest = async (searchTerm = "san francisco") => {
     //read carefully ${hostLocation} ; only work on simulator , not in real devices//error developpment
 
     //use this (${liveHostLocation}) if we want to test on real device
-    /*  const response = await fetch(`${liveHostLocation}?city=${searchTerm}`, {
-      method: 'GET',
-    }); */
-    //use the following  with simulators
-    console.log("root string:", `${hostLocation}?city=${searchTerm}`);
-    const response = await fetch(`${hostLocation}?city=${searchTerm}`, {
+    const response = await fetch(`${liveHostLocation}?city=${searchTerm}`, {
       method: "GET",
     });
+    //use the following  with simulators
+    /* console.log("root string:", `${hostLocation}?city=${searchTerm}`);
+    const response = await fetch(`${hostLocation}?city=${searchTerm}`, {
+      method: "GET",
+    }); */
     const data = await response.json();
     console.log(
       "Location request new from location.service.js/locationRequest function",
