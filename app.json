@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Meals To Go New",
+    "name": "Meals To Go New (preview)",
     "slug": "MealsToGoNew",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -25,7 +25,7 @@
       "package": "com.freemanexpo.MealsToGoNew",
       "config": {
         "googleMaps": {
-          "apiKey": "AIzaSyDEbLrygkfBbzKtHDPiqNZy9RTOSBQdW80"
+          "apiKey": ""
         }
       }
     },
